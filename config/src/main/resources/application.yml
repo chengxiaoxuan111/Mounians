@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 #Server服务的列表只读备份，然后缓存在本地。默认30秒
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 10 # 10秒即过期
+    lease-renewal-interval-in-seconds: 5 # 5秒一次心跳
+spring:
+  profiles:
+    active:  composite,default # 如果要使用本地配置文件，此处需增加composite。多profile时，谁在前面谁的配置优先级就高
+  cloud:
+    config:
+      server:
+        bootstrap: true
+        default-profile: default
+        default-label: master
+        composite: # 此配置为使用本地文件，与git脱离关系
+          - type: native
+            search-locations: /Users/apple/Downloads/Moutains/config/src/main/cofig-files
+        git:
+          uri: https://github.com/chengxiaoxuan111/Mounians.git
+          username: chegxiaoxuan111
+          password: HelloMyGit1
+          search-paths: config-files
