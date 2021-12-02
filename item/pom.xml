@@ -12,7 +12,7 @@
     <artifactId>item</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>instance</module>
+        <module>qingshan-instance</module>
     </modules>
 
     <properties>
