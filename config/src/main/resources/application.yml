@@ -24,7 +24,7 @@ spring:
           - type: native
             search-locations: /Users/apple/Downloads/Moutains/config-repo
         git:
-          uri: https://github.com/chengxiaoxuan111/Mounians.git
+          uri: https://github.com/chengxiaoxuan111/config.git
           username: chegxiaoxuan111
           password: HelloMyGit1
-          search-paths: config-repo
+          search-paths: blob/main/application.yml
